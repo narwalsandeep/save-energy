@@ -1,0 +1,23 @@
+<div class="col-md-4">
+	<form
+		action="<?php echo $this->url("application/child",array("controller"=>"signup","action"=>"process"))?>"
+		method="post">
+		<div class="form-group">
+			Email <br> <input type="text" required class="form-control" id="username"
+				name="username" placeholder="Enter username">
+		</div>
+		<div class="form-group">
+			Password <br> <input required type="password" class="form-control"
+				id="passwd" name="passwd" placeholder="Password">
+		</div>
+		<div class="form-group">
+			Confirm Password <br> <input required type="password" class="form-control"
+				id="c_passwd" name="c_passwd" placeholder="Confirm Password">
+		</div>
+		<div class="checkbox">
+			<label> <input name="remember_me" type="checkbox"> I Agree with Terms.
+			</label>
+		</div>
+		<button type="submit" class="btn btn-default">Submit</button>
+	</form>
+</div>

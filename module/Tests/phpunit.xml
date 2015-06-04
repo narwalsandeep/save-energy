@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<phpunit bootstrap="Bootstrap.php" colors="true" verbose="true">
+    <testsuites>
+        <testsuite name="Bookitv2 Test Suite">
+            <directory suffix="Test.php">../Tests/*</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>
