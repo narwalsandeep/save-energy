@@ -9,7 +9,7 @@ use Zend\Db\TableGateway\TableGateway;
  * @author sandeepnarwal
  *        
  */
-class CandleTable extends EntityTable {
+class AddressTable extends EntityTable {
 	
 	/**
 	 *
@@ -21,10 +21,10 @@ class CandleTable extends EntityTable {
 	
 	/**
 	 *
-	 * @return \Model\Entity\CandleFinder
+	 * @return \Model\Entity\AddressFinder
 	 */
 	public function getFinder() {
-		return new CandleFinder ( $this );
+		return new AddressFinder ( $this );
 	}
 	
 	/**
@@ -35,10 +35,16 @@ class CandleTable extends EntityTable {
 	protected function _getColumns() {
 		return array (
 			'id',
-			'name',
-			'image',
-			'dated',
-			'status' 
+			'user_id',
+			'street_1',
+			'street_2',
+			'city',
+			'state',
+			'zipcode',
+			'country',
+			'lat',
+			'lng',
+			'dated' 
 		);
 	}
 	
@@ -51,9 +57,9 @@ class CandleTable extends EntityTable {
 		$data = array ();
 		$data = $params;
 		
-		$Candle = new Candle ();
+		$Address = new Address ();
 		$data ['dated'] = time ();
-		$Candle->exchangeArray ( $data );
-		return $this->save ( $Candle );
+		$Address->exchangeArray ( $data );
+		return $this->save ( $Address );
 	}
 }

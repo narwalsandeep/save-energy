@@ -18,7 +18,6 @@ class SigninController extends AbstractActionController {
 	 * @see \Zend\Mvc\Controller\AbstractActionController::indexAction()
 	 */
 	public function indexAction() {
-		
 	}
 	
 	/**
@@ -41,30 +40,30 @@ class SigninController extends AbstractActionController {
 			) );
 		}
 		
-		$adapter = new \Zend\Authentication\Adapter\DbTable ( $adapterService, 'cndl_user', 'username', 'passwd' );
+		$adapter = new \Zend\Authentication\Adapter\DbTable ( $adapterService, 'energy_user', 'username', 'passwd' );
 		$authService->setAdapter ( $adapter );
 		$authService->getAdapter ()->setIdentity ( $username )->setCredential ( $password );
 		$result = $authService->authenticate ();
 		
 		if ($result->isValid ()) {
-			$userTable = $this->getServiceLocator ()->get ( 'Model\Entity\User' );
-			$userData = $userTable->getFinder ()->findOne ( array (
+			$UserTable = $this->getServiceLocator ()->get ( 'Model\Entity\User' );
+			$UserData = $UserTable->getFinder ()->setFinderParams ( array (
 				"where" => array (
 					"username" => $username 
 				) 
-			) );
-			if ($userData) {
-				if ($userData->status == User::ACTIVE) {
+			) )->findOne ();
+			if ($UserData) {
+				if ($UserData->status == User::ACTIVE) {
 					
 					// now write auth into session, but not password
-					$userData->passwd = NULL;
-					$userData->auth_token = NULL;
-					$authService->getStorage ()->write ( $userData );
+					$UserData->passwd = NULL;
+					$UserData->auth_token = NULL;
+					$authService->getStorage ()->write ( $UserData );
 					
 					if ($authService->hasIdentity ()) {
 						
 						// type must be a valid type to login
-						switch ($userData->user_type) {
+						switch ($UserData->user_type) {
 							case User::SU :
 								$this->flashMessenger ()->addMessage ( array (
 									'success' => 'Logged in as Super User.' 
@@ -77,7 +76,7 @@ class SigninController extends AbstractActionController {
 								return $this->redirect ()->toRoute ( 'user' );
 							case 'default' :
 								$this->flashMessenger ()->addMessage ( array (
-									'error' => 'Cannot Identify UserType.' 
+									'error' => 'Cannot Identify User.' 
 								) );
 						}
 					} else {

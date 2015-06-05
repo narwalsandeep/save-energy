@@ -6,7 +6,7 @@ namespace Model\Entity;
  * @author sandeepnarwal
  *        
  */
-class Config extends Entity
+class MeterReading extends Entity
 {
 
 }

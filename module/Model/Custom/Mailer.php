@@ -22,7 +22,7 @@ class Mailer {
 			return false;
 		
 		if (! $this->from_name)
-			$this->from_name = 'Aspin Support';
+			$this->from_name = APP_NAME.' Support';
 		
 		$message = new \Zend\Mail\Message ();
 		
@@ -41,9 +41,9 @@ class Mailer {
 		
 		$smtpOptions = new \Zend\Mail\Transport\SmtpOptions ();
 		
-		$smtpOptions->setHost ( 'smtp.office365.com' )->setConnectionClass ( 'login' )->setName ( 'smtp.office365.com' )->setPort ( 587 )->setConnectionConfig ( array (
-			'username' => \Model\Entity\Constants::PX_AGENT_SUPPORT_EMAIL,
-			'password' => \Model\Entity\Constants::PX_AGENT_SUPPORT_EMAIL_PWD,
+		$smtpOptions->setHost ( 'smtp.gmail.com' )->setConnectionClass ( 'login' )->setName ( 'smtp.gmail.com' )->setPort ( 587 )->setConnectionConfig ( array (
+			'username' => \Model\Entity\Constants::SUPPORT_EMAIL,
+			'password' => \Model\Entity\Constants::SUPPORT_EMAIL_PWD,
 			'ssl' => 'tls' 
 		) );
 		

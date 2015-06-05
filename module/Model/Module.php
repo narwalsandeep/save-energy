@@ -27,10 +27,10 @@ class Module implements AutoloaderProviderInterface {
 	 * @var unknown
 	 */
 	public $_tablesMap = array (
-		"cndl_user" => "\Model\Entity\User",
-		"cndl_candle" => "\Model\Entity\Candle",
-		"cndl_user_candle" => "\Model\Entity\UserCandle",
-		"cndl_config" => "\Model\Entity\Config" 
+		"energy_user" => "\Model\Entity\User",
+		"energy_candle" => "\Model\Entity\Candle",
+		"energy_user_candle" => "\Model\Entity\UserCandle",
+		"energy_config" => "\Model\Entity\Config" 
 	)
 	;
 	

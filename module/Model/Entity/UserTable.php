@@ -54,7 +54,6 @@ class UserTable extends EntityTable {
 			'passwd',
 			'auth_token',
 			'avatar',
-			'mobile',
 			'resetting_password',
 			'reset_password_time',
 			'dated',

@@ -9,7 +9,7 @@ use Zend\Db\TableGateway\TableGateway;
  * @author sandeepnarwal
  *        
  */
-class ConfigTable extends EntityTable {
+class MeterReadingTable extends EntityTable {
 	
 	/**
 	 *
@@ -21,10 +21,10 @@ class ConfigTable extends EntityTable {
 	
 	/**
 	 *
-	 * @return \Model\Entity\ConfigFinder
+	 * @return \Model\Entity\MeterReadingFinder
 	 */
 	public function getFinder() {
-		return new ConfigFinder ( $this );
+		return new MeterReadingFinder ( $this );
 	}
 	
 	/**
@@ -35,10 +35,9 @@ class ConfigTable extends EntityTable {
 	protected function _getColumns() {
 		return array (
 			'id',
-			'type',
-			'name',
-			'content',
-			'last_updated',
+			'address_id',
+			'reading_type',
+			'reading',
 			'dated' 
 		);
 	}

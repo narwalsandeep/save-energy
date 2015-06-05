@@ -10,7 +10,7 @@ use Zend\Db\Sql\Select;
  * @author sandeepnarwal
  *        
  */
-class CandleFinder extends EntityFinder {
+class AddressFinder extends EntityFinder {
 	
 	/**
 	 *
