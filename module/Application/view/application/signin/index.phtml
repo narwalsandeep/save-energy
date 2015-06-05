@@ -1,19 +1,97 @@
-<div class="col-md-4">
-	<form
-		action="<?php echo $this->url("application/child",array("controller"=>"signin","action"=>"process"))?>"
-		method="post">
-		<div class="form-group">
-			Username/Email <br> <input type="text" required class="form-control" id="username"
-				name="username" placeholder="Enter username">
+<h1></h1>
+<div class="col-lg-12">
+	<div class="col-lg-2">
+		<hr>
+		<h3>REGISTER</h3>
+		<hr>
+		<p class="lead text text-muted">Registration is straight forward.
+			Please select the Provider you currently have and give us your basic
+			information.</p>
+		<small>We will never send you promotion, unless you subscribe with us.</small>
+		<hr>
+	</div>
+
+	<div class="col-lg-10">
+		<div class="panel panel-default">
+			<div class="panel-heading">We would require your very basic
+				information here...</div>
+			<div class="panel-body">
+				<form class="form-horizontal"
+					action="<?php echo $this->url("application/child",array("controller"=>"signin","action"=>"process"))?>"
+					method="post">
+					<fieldset>
+						<div class="form-group">
+							<label for="inputEmail" class="col-lg-2 control-label">Email</label>
+							<div class="col-lg-10">
+								<input type="text" class="form-control" id="email" name="email"
+									placeholder="Email">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="inputPassword" class="col-lg-2 control-label">Password</label>
+							<div class="col-lg-10">
+								<input type="password" class="form-control" id="password" name="password"
+									placeholder="Password">
+								<div class="checkbox">
+									<label> <input type="checkbox"> Checkbox
+									</label>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="textArea" class="col-lg-2 control-label">Textarea</label>
+							<div class="col-lg-10">
+								<textarea class="form-control" rows="3" id="textArea"></textarea>
+								<span class="help-block">A longer block of help text that breaks
+									onto a new line and may extend beyond one line.</span>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-lg-2 control-label">Radios</label>
+							<div class="col-lg-10">
+								<div class="radio">
+									<label> <input type="radio" name="optionsRadios"
+										id="optionsRadios1" value="option1" checked=""> Option one is
+										this
+									</label>
+								</div>
+								<div class="radio">
+									<label> <input type="radio" name="optionsRadios"
+										id="optionsRadios2" value="option2"> Option two can be
+										something else
+									</label>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="select" class="col-lg-2 control-label">Selects</label>
+							<div class="col-lg-10">
+								<select class="form-control" id="select">
+									<option>1</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+									<option>5</option>
+								</select> <br> <select multiple="" class="form-control">
+									<option>1</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+									<option>5</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-lg-10 col-lg-offset-2">
+								<button type="reset" class="btn btn-default">Cancel</button>
+								<button type="submit" class="btn btn-primary">Submit</button>
+							</div>
+						</div>
+					</fieldset>
+
+				</form>
+			</div>
 		</div>
-		<div class="form-group">
-			Password <br> <input required type="password" class="form-control"
-				id="password" name="password" placeholder="Password">
-		</div>
-		<div class="checkbox">
-			<label> <input name="remember_me" type="checkbox"> Remember Me
-			</label>
-		</div>
-		<button type="submit" class="btn btn-default">Submit</button>
-	</form>
+	</div>
 </div>
+
