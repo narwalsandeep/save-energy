@@ -27,10 +27,7 @@ echo $this->doctype ();
 		  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome-ie7.min.css">
 		<![endif]-->
 		
-		<link
-			href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic'
-			rel='stylesheet' type='text/css'>
-
+		<link href='http://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
 		<!-- Scripts -->
         
         <?php
@@ -48,6 +45,19 @@ echo $this->doctype ();
 		?>
 
 </head>
+
+<style>
+.brand-one,.brand-two{
+font-family: 'Indie Flower', cursive;
+font-size:32px;
+}
+.brand-one{
+color:#16A085;
+}
+.brand-two{
+color:#2980B9;
+}		
+</style>
 
 <body>
 <?php
@@ -71,7 +81,8 @@ if ($Auth->hasIdentity ()) {
 					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="<?php echo $this->url('home') ?>">&nbsp;<?php echo $this->translate(APP_NAME) ?></a>
+				<a class="navbar-brand" href="<?php echo $this->url('home') ?>">&nbsp;<span class="brand-one">Save</span>
+				<span class="brand-two">Energy</span>	</a>
 			</div>
 			<div class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
@@ -80,11 +91,11 @@ if ($Auth->hasIdentity ()) {
 						href="<?php echo $this->url('su',array('controller'=>'dashboard','action'=>'index')) ?>"><span
 							class='glyphicon glyphicon-dashboard'></span> <?php echo $this->translate('Dashboard') ?></a></li>
 			     	<li class="active"><a
-						href="<?php echo $this->url('su',array('controller'=>'user','action'=>'index')) ?>"><span
-							class='glyphicon glyphicon-user'></span> <?php echo $this->translate('User') ?></a></li>
+						href="<?php echo $this->url('su',array('controller'=>'user','action'=>'get-stats')) ?>"><span
+							class='glyphicon glyphicon-user'></span> <?php echo $this->translate('Stats') ?></a></li>
 			     	<li class="active"><a
-						href="<?php echo $this->url('su',array('controller'=>'candle','action'=>'index')) ?>"><span
-							class='glyphicon  glyphicon-fire'></span> <?php echo $this->translate('Candle') ?></a></li>
+						href="<?php echo $this->url('su',array('controller'=>'user','action'=>'new-reading')) ?>"><span
+							class='glyphicon glyphicon-user'></span> <?php echo $this->translate('New Reading') ?></a></li>
 					<li class="active"><a
 						href="<?php echo $this->url('application/child',array('controller'=>'signin','action'=>'quit')) ?>"><span
 							class='glyphicon glyphicon-log-out'></span> <?php echo $this->translate('Sign Out') ?></a></li>
