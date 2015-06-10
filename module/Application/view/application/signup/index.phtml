@@ -1,7 +1,6 @@
 <h1></h1>
 <div class="col-lg-12">
-	<div class="col-lg-2">
-		<hr>
+	<div class="col-lg-2 panel">
 		<h3>SIGN UP</h3>
 		<hr>
 		<p class="lead text text-muted">Registration is straight forward.
@@ -14,8 +13,7 @@
 		</p>
 
 		<small class="text text-muted">We will never send you promotional
-			email, unless you subscribe with us.</small>
-		<hr>
+			email, unless you subscribe with us.</small> <br> <br>
 	</div>
 
 	<div class="col-lg-10">
@@ -27,11 +25,11 @@
 					<div class="wizard" data-initialize="wizard" id="myWizard">
 						<ul class="steps">
 							<li data-step="1" data-name="campaign" class="active"><span
-								class="badge">1</span>Campaign<span class="chevron"></span></li>
-							<li data-step="2"><span class="badge">2</span>Recipients<span
+								class="badge">1</span>Provider<span class="chevron"></span></li>
+							<li data-step="2"><span class="badge">2</span>Address<span
 								class="chevron"></span></li>
-							<li data-step="3" data-name="template"><span class="badge">3</span>Template<span
-								class="chevron"></span></li>
+							<li data-step="3" data-name="template"><span class="badge">3</span>Login
+								Info<span class="chevron"></span></li>
 						</ul>
 						<div class="actions">
 							<button type="button" class="btn btn-primary btn-sm btn-prev">
@@ -44,11 +42,26 @@
 						</div>
 						<div class="step-content">
 							<div class="step-pane active sample-pane alert" data-step="1">
-								<h4>Setup Campaign</h4>
-								<p>Veggies es bonus vobis, proinde vos postulo essum magis
-									kohlrabi welsh onion daikon amaranth tatsoi tomatillo melon
-									azuki bean garlic. Beetroot water spinach okra water chestnut
-									ricebean pea catsear courgette.</p>
+								<h5 CLASS="text text-muted">SELECT YOUR ELECTRICITY PROVIDER</h5>
+								<hr>
+								<div class="form-group">
+									<div class="col-lg-12">
+										<h4>
+										<div class="radio">
+											<label> <input type="radio" name="optionsRadios"
+												id="optionsRadios1" value="option1" checked=""> Spark Energy
+												<br><small>dede dede</small>
+											</label>
+										</div>
+										<div class="radio">
+											<label> <input type="radio" name="optionsRadios"
+												id="optionsRadios2" value="option2"> 
+											</label>
+										</div>
+										</h4>
+									</div>
+								</div>
+
 							</div>
 							<div class="step-pane sample-pane " data-step="2">
 								<h4>Choose Recipients</h4>
