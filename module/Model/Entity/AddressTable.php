@@ -19,35 +19,7 @@ class AddressTable extends EntityTable {
 		parent::__construct ( $tableGateway );
 	}
 	
-	/**
-	 *
-	 * @return \Model\Entity\AddressFinder
-	 */
-	public function getFinder() {
-		return new AddressFinder ( $this );
-	}
-	
-	/**
-	 * everytime schema is changes, must also change here
-	 *
-	 * @return multitype:string
-	 */
-	protected function _getColumns() {
-		return array (
-			'id',
-			'user_id',
-			'street_1',
-			'street_2',
-			'city',
-			'state',
-			'zipcode',
-			'country',
-			'lat',
-			'lng',
-			'dated' 
-		);
-	}
-	
+		
 	/**
 	 *
 	 * @param unknown $params        	

@@ -71,10 +71,21 @@ class EntityFinder {
 	
 	/**
 	 *
+	 * @return unknown
+	 */
+	public function getFinder() {
+		$class = get_class ( $this );
+		$class = substr ( $class, 0, strlen ( $class ) - 5 );
+		$class = $class . "Finder";
+		return new $class ( $this );
+	}
+	
+	/**
+	 *
 	 * @param string $params        	
 	 * @return \Model\Entity\EntityFinder
 	 */
-	public function setFinderParams($params = null) {
+	public function setParams($params = null) {
 		$this->_params = array_merge ( $this->_params, $params );
 		return $this;
 	}
@@ -83,7 +94,7 @@ class EntityFinder {
 	 *
 	 * @return \Model\Entity\unknown
 	 */
-	public function getFinderParams() {
+	public function getParams() {
 		return $this->_params;
 	}
 	
@@ -91,7 +102,7 @@ class EntityFinder {
 	 *
 	 * @return \Model\Entity\EntityFinder
 	 */
-	public function clearFinderParams() {
+	public function clearParams() {
 		$this->_params = null;
 		return $this;
 	}

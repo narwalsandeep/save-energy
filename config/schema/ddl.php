@@ -38,7 +38,7 @@ create table energy_address(
 	
 )engine=innodb;
 
-create table energy_meter_reading(
+create table energy_meter(
 
 	id int(10) auto_increment,
 	address_id int(10),

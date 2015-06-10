@@ -31,35 +31,6 @@ class UserTable extends EntityTable {
 		parent::__construct ( $tableGateway );
 	}
 	
-	/**
-	 *
-	 * @return \Model\Entity\UserFinder
-	 */
-	public function getFinder() {
-		return new UserFinder ( $this );
-	}
-	
-	/**
-	 * everytime schema is changes, must also change here
-	 *
-	 * @return multitype:string
-	 */
-	protected function _getColumns() {
-		return array (
-			'id',
-			'first_name',
-			'last_name',
-			'user_type',
-			'username',
-			'passwd',
-			'auth_token',
-			'avatar',
-			'resetting_password',
-			'reset_password_time',
-			'dated',
-			'status' 
-		);
-	}
 	
 	/**
 	 *
@@ -75,7 +46,7 @@ class UserTable extends EntityTable {
 		}
 		
 		$User = new User ();
-		$checkDouble = $this->getFinder ()->setFinderParams ( array (
+		$checkDouble = $this->getFinder ()->setParams ( array (
 			'where' => array (
 				"username" => $params ['username'] 
 			) 
@@ -142,7 +113,7 @@ class UserTable extends EntityTable {
 	 */
 	public function authenticateToken($params) {
 		$UserTable = $this->getServiceLocator ()->get ( 'Model\Entity\User' );
-		$UserData = $UserTable->getFinder ()->setFinderParams ( array (
+		$UserData = $UserTable->getFinder ()->setParams ( array (
 			"auth_token" => $params ['auth_token'] 
 		) )->findOne ();
 		

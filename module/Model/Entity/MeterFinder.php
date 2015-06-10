@@ -7,7 +7,7 @@ namespace Model\Entity;
  * @author sandeepnarwal
  *        
  */
-class MeterReadingFinder extends EntityFinder
+class MeterFinder extends EntityFinder
 {
 
     /**

@@ -88,13 +88,13 @@ if ($Auth->hasIdentity ()) {
 				<ul class="nav navbar-nav">
 				<?php if($Auth->hasIdentity()){?>
 			     	<li class="active"><a
-						href="<?php echo $this->url('su',array('controller'=>'dashboard','action'=>'index')) ?>"><span
+						href="<?php echo $this->url('user',array('controller'=>'dashboard','action'=>'index')) ?>"><span
 							class='glyphicon glyphicon-dashboard'></span> <?php echo $this->translate('Dashboard') ?></a></li>
 			     	<li class="active"><a
-						href="<?php echo $this->url('su',array('controller'=>'user','action'=>'get-stats')) ?>"><span
+						href="<?php echo $this->url('user',array('controller'=>'meter','action'=>'get-stats')) ?>"><span
 							class='glyphicon glyphicon-user'></span> <?php echo $this->translate('Stats') ?></a></li>
 			     	<li class="active"><a
-						href="<?php echo $this->url('su',array('controller'=>'user','action'=>'new-reading')) ?>"><span
+						href="<?php echo $this->url('user',array('controller'=>'meter','action'=>'new-reading')) ?>"><span
 							class='glyphicon glyphicon-user'></span> <?php echo $this->translate('New Reading') ?></a></li>
 					<li class="active"><a
 						href="<?php echo $this->url('application/child',array('controller'=>'signin','action'=>'quit')) ?>"><span
