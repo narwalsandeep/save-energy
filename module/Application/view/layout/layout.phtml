@@ -18,6 +18,7 @@ echo $this->doctype ();
 		) );
 		$headLink->prependStylesheet ( $this->basePath () . '/css/style.css' );
 		$headLink->prependStylesheet ( $this->basePath () . '/css/flat-bootstrap-theme.css' );
+		$headLink->prependStylesheet ( "//www.fuelcdn.com/fuelux/3.6.3/css/fuelux.min.css" );
 		$headLink->prependStylesheet ( "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" );
 		$headLink->prependStylesheet("//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css");
 		echo $headLink;
@@ -32,6 +33,7 @@ echo $this->doctype ();
         
         <?php
 		$headScript = $this->headScript ();
+		$headScript->prependFile ( $this->basePath () . '/js/bootstrap-wizard.js' );
 		$headScript->prependFile ( $this->basePath () . '/js/noty/packaged/jquery.noty.packaged.min.js' );
 		$headScript->prependFile ( "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js" );
 		$headScript->prependFile ( "//code.jquery.com/jquery-1.11.3.min.js" );
@@ -42,8 +44,10 @@ echo $this->doctype ();
 			'conditional' => 'lt IE 9' 
 		));
 		echo $headScript;
+		
 		?>
-
+		<script src="//www.fuelcdn.com/fuelux/3.6.3/js/fuelux.min.js"></script>
+		
 </head>
 
 <style>
@@ -57,9 +61,12 @@ color:#16A085;
 .brand-two{
 color:#2980B9;
 }		
+.wizard .step-content{
+background-color:#fff;
+}
 </style>
 
-<body>
+<body class="fuelux">
 <?php
 // get service locator
 $sl = $this->viewmodel ()->getView ()->getHelperPluginManager ()->getServiceLocator ();

@@ -1,6 +1,6 @@
 {
-	"name" : "save-energy-0.1",
-	"description" : "save-energy-0.1",
+	"name" : "cb",
+	"description" : "cb",
 	"require" : {
 		"php" : ">=5.5.0",
 		"zendframework/zendframework" : "*",
@@ -27,7 +27,7 @@
 		"phpunit/phpunit-skeleton-generator" : "*"
 	},
 	"keywords" : [
-		"save-energy"
+		"cb"
 	],
 	"license" : "BSD-3-Clause",
 	"homepage" : "http://framework.zend.com/"
