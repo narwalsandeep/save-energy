@@ -47,10 +47,21 @@ abstract class EntityTable implements \Zend\ServiceManager\ServiceLocatorAwareIn
 	}
 	
 	/**
-	 * 
+	 *
+	 * @return unknown
+	 */
+	public function getFinder() {
+		$class = get_class ( $this );
+		$class = substr ( $class, 0, strlen ( $class ) - 5 );
+		$class = $class . "Finder";
+		return new $class ( $this );
+	}
+	
+	/**
+	 *
 	 * @return \Model\Entity\unknown
 	 */
-	public function hasError(){
+	public function hasError() {
 		return $this->err;
 	}
 	
@@ -129,9 +140,9 @@ abstract class EntityTable implements \Zend\ServiceManager\ServiceLocatorAwareIn
 	 * @return number
 	 */
 	public function save(Entity $entity, $where = null) {
+		$table = substr ( $this->getTableGateway ()->table, 7 );
 		
-		// map for each column of this table
-		$columns = $this->_getColumns ();
+		$columns = \Model\Module::$table_map [$table] ['columns'];
 		foreach ( $columns as $key => $value ) {
 			if (property_exists ( $entity, $value ))
 				$data [$value] = $entity->{$value};

@@ -18,7 +18,7 @@ echo $this->doctype ();
 		) );
 		$headLink->prependStylesheet ( $this->basePath () . '/css/style.css' );
 		$headLink->prependStylesheet ( $this->basePath () . '/css/flat-bootstrap-theme.css' );
-		$headLink->prependStylesheet (  $this->basePath () . '/css/fuelux.css' );
+		$headLink->prependStylesheet ( $this->basePath () . '/css/fuelux.css' );
 		$headLink->prependStylesheet ( "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" );
 		$headLink->prependStylesheet("//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css");
 		echo $headLink;
@@ -33,6 +33,7 @@ echo $this->doctype ();
         
         <?php
 		$headScript = $this->headScript ();
+		$headScript->prependFile ( $this->basePath () . '/js/jquery.ajax-form-submit.js' );
 		$headScript->prependFile ( $this->basePath () . '/js/bootstrap-wizard.js' );
 		$headScript->prependFile ( $this->basePath () . '/js/noty/packaged/jquery.noty.packaged.min.js' );
 		$headScript->prependFile ( "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js" );
@@ -151,3 +152,26 @@ if ($Auth->hasIdentity ()) {
     <?php echo $this->inlineScript()?>
     </body>
 </html>
+
+
+<script>
+
+function showNoty(type,message){
+	
+	noty({
+	    layout: 'topCenter',
+	    theme: 'relax', // or 'relax'
+	    type: type,
+	    timeout:5000,
+	    closeWith: ['click'],
+	    text: message,
+	    dismissQueue: true, // If you want to use queue feature set this true
+		animation: {
+	        open: {height: 'toggle'}, // jQuery animate function property object
+	        close: {height: 'toggle'}, // jQuery animate function property object
+	        easing: 'swing', // easing
+	        speed: 300 // opening & closing animation speed
+	    }
+	});
+}
+</script>

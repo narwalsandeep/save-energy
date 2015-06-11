@@ -26,13 +26,13 @@ class Module implements AutoloaderProviderInterface {
 	 *
 	 * @var unknown
 	 */
-	public $table_prefix = "energy_";
+	public static $table_prefix = "energy_";
 	
 	/**
 	 *
 	 * @var unknown
 	 */
-	public $table_map = array (
+	public static $table_map = array (
 		"user" => array (
 			"entity" => "\Model\Entity\User",
 			"associate" => array (
@@ -47,6 +47,10 @@ class Module implements AutoloaderProviderInterface {
 				'passwd',
 				'auth_token',
 				'avatar',
+				'mobile',
+				'weekly_cost_threshold',
+				'monthly_cost_threshold',
+				'quarterly_cost_threshold',
 				'resetting_password',
 				'reset_password_time',
 				'dated',
@@ -107,9 +111,9 @@ class Module implements AutoloaderProviderInterface {
 	public function getServiceConfig() {
 		
 		// map each table in service factories
-		foreach ( $this->table_map as $key => $value ) {
+		foreach ( self::$table_map as $key => $value ) {
 			$entity = $value ["entity"] . 'Table';
-			$name = $this->table_prefix . $key;
+			$name = self::$table_prefix . $key;
 			$gateway = $value ['entity'] . 'Gateway';
 			// set table factory
 			$factory [$value ['entity']] = function ($sm) use($name, $entity, $gateway) {

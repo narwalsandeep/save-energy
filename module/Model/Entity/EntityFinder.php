@@ -71,17 +71,6 @@ class EntityFinder {
 	
 	/**
 	 *
-	 * @return unknown
-	 */
-	public function getFinder() {
-		$class = get_class ( $this );
-		$class = substr ( $class, 0, strlen ( $class ) - 5 );
-		$class = $class . "Finder";
-		return new $class ( $this );
-	}
-	
-	/**
-	 *
 	 * @param string $params        	
 	 * @return \Model\Entity\EntityFinder
 	 */
@@ -167,7 +156,7 @@ class EntityFinder {
 	 * @return unknown
 	 */
 	public function findOne() {
-		$params = $this->getFinderParams ();
+		$params = $this->getParams ();
 		if (! isset ( $params ['where'] ))
 			$params ['where'] = array ();
 		
@@ -192,7 +181,7 @@ class EntityFinder {
 	 */
 	public function findAll() {
 		$select = $this->getSql ()->select ();
-		$params = $this->getFinderParams ();
+		$params = $this->getParams ();
 		try {
 			if (isset ( $params ['sort'] ))
 				$select->order ( $params ['sort'] );
@@ -221,7 +210,7 @@ class EntityFinder {
 	 * @param unknown $params        	
 	 */
 	public function findCount() {
-		$params = $this->getFinderParams ();
+		$params = $this->getParams ();
 		$select = $this->getSql ()->select ();
 		
 		try {
