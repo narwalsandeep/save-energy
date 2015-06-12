@@ -19,7 +19,7 @@ create table energy_user(
 	
 )engine=innodb;
 
-insert into cndl_user(id,user_type,username,passwd,status) values(1,"su","admin","admin","active");
+insert into energy_user(id,user_type,username,passwd,status) values(1,"su","admin","admin","active");
 
 create table energy_address(
 	
@@ -34,7 +34,7 @@ create table energy_address(
 	dated varchar(100),
 	
 	primary key(id),
-	foreign key(user_id) references energy_user(id) on update cascase on delete cascade
+	foreign key(user_id) references energy_user(id) on update cascade on delete cascade
 	
 )engine=innodb;
 
@@ -47,6 +47,6 @@ create table energy_meter_reading(
 	dated varchar(200),
 	
 	primary key(id),
-	foreign key(address_id) references energy_address(id) on update cascase on delete cascade
+	foreign key(address_id) references energy_address(id) on update cascade on delete cascade
 	
 )engine=innodb;

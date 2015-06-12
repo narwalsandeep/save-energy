@@ -1,23 +1,77 @@
-<div class="col-md-4">
-	<form
-		action="<?php echo $this->url("application/child",array("controller"=>"signup","action"=>"process"))?>"
-		method="post">
-		<div class="form-group">
-			Email <br> <input type="text" required class="form-control" id="username"
-				name="username" placeholder="Enter username">
+<h1></h1>
+<div class="col-lg-12">
+	<div class="col-lg-2">
+		<hr>
+		<h3>SIGN UP</h3>
+		<hr>
+		<p class="lead text text-muted">Registration is straight forward.
+			Please select the Provider you currently have and give us your basic
+			information.</p>
+		<p class="text text-default">
+			Already have an account <a
+				href="<?php echo $this->url("application/child",array("controller"=>"signup"))?>">Click
+				Here</a> to Sign in.
+		</p>
+
+		<small class="text text-muted">We will never send you promotional
+			email, unless you subscribe with us.</small>
+		<hr>
+	</div>
+
+	<div class="col-lg-10">
+		<div class="">
+			<div class="panel-body">
+				<form class="form-horizontal"
+					action="<?php echo $this->url("application/child",array("controller"=>"signin","action"=>"process"))?>"
+					method="post">
+					<div class="wizard" data-initialize="wizard" id="myWizard">
+						<ul class="steps">
+							<li data-step="1" data-name="campaign" class="active"><span
+								class="badge">1</span>Campaign<span class="chevron"></span></li>
+							<li data-step="2"><span class="badge">2</span>Recipients<span
+								class="chevron"></span></li>
+							<li data-step="3" data-name="template"><span class="badge">3</span>Template<span
+								class="chevron"></span></li>
+						</ul>
+						<div class="actions">
+							<button type="button" class="btn btn-primary btn-sm btn-prev">
+								<span class="glyphicon glyphicon-arrow-left"></span>Prev
+							</button>
+							<button type="button" class="btn btn-primary btn-next btn-sm"
+								data-last="Complete">
+								Next<span class="glyphicon glyphicon-arrow-right"></span>
+							</button>
+						</div>
+						<div class="step-content">
+							<div class="step-pane active sample-pane alert" data-step="1">
+								<h4>Setup Campaign</h4>
+								<p>Veggies es bonus vobis, proinde vos postulo essum magis
+									kohlrabi welsh onion daikon amaranth tatsoi tomatillo melon
+									azuki bean garlic. Beetroot water spinach okra water chestnut
+									ricebean pea catsear courgette.</p>
+							</div>
+							<div class="step-pane sample-pane " data-step="2">
+								<h4>Choose Recipients</h4>
+								<p>Celery quandong swiss chard chicory earthnut pea potato.
+									Salsify taro catsear garlic gram celery bitterleaf wattle seed
+									collard greens nori. Grape wattle seed kombu beetroot
+									horseradish carrot squash brussels sprout chard.</p>
+							</div>
+							<div class="step-pane sample-pane" data-step="3">
+								<h4>Design Template</h4>
+								<p>Nori grape silver beet broccoli kombu beet greens fava bean
+									potato quandong celery. Bunya nuts black-eyed pea prairie
+									turnip leek lentil turnip greens parsnip. Sea lettuce lettuce
+									water chestnut eggplant winter purslane fennel azuki bean
+									earthnut pea sierra leone bologi leek soko chicory celtuce
+									parsley jícama salsify.</p>
+							</div>
+						</div>
+					</div>
+
+				</form>
+			</div>
 		</div>
-		<div class="form-group">
-			Password <br> <input required type="password" class="form-control"
-				id="passwd" name="passwd" placeholder="Password">
-		</div>
-		<div class="form-group">
-			Confirm Password <br> <input required type="password" class="form-control"
-				id="c_passwd" name="c_passwd" placeholder="Confirm Password">
-		</div>
-		<div class="checkbox">
-			<label> <input name="remember_me" type="checkbox"> I Agree with Terms.
-			</label>
-		</div>
-		<button type="submit" class="btn btn-default">Submit</button>
-	</form>
+	</div>
 </div>
+
