@@ -103,19 +103,19 @@ if ($Auth->hasIdentity ()) {
 							class='glyphicon glyphicon-dashboard'></span> <?php echo $this->translate('Dashboard') ?></a></li>
 			     	<li class="active"><a
 						href="<?php echo $this->url('user',array('controller'=>'meter','action'=>'get-stats')) ?>"><span
-							class='glyphicon glyphicon-user'></span> <?php echo $this->translate('Stats') ?></a></li>
+							class='glyphicon glyphicon-stats'></span> <?php echo $this->translate('Stats') ?></a></li>
 			     	<li class="active"><a
 						href="<?php echo $this->url('user',array('controller'=>'meter','action'=>'new-reading')) ?>"><span
-							class='glyphicon glyphicon-user'></span> <?php echo $this->translate('New Reading') ?></a></li>
+							class='glyphicon  glyphicon-flash'></span> <?php echo $this->translate('New Reading') ?></a></li>
 					<li class="active"><a
 						href="<?php echo $this->url('application/child',array('controller'=>'signin','action'=>'quit')) ?>"><span
 							class='glyphicon glyphicon-log-out'></span> <?php echo $this->translate('Sign Out') ?></a></li>
 					<?php } else {?>
 					<li class="active"><a
-						href="<?php echo $this->url('application/child',array('controller'=>'signin','action'=>'index')) ?>"><span
+						href="<?php echo $this->url('application/child',array('controller'=>'signin')) ?>"><span
 							class='glyphicon glyphicon-log-in'></span> <?php echo $this->translate('Sign In') ?></a></li>
 					<li class="active"><a
-						href="<?php echo $this->url('application/child',array('controller'=>'signup','action'=>'index')) ?>"><span
+						href="<?php echo $this->url('application/child',array('controller'=>'signup')) ?>"><span
 							class='glyphicon glyphicon-user'></span> <?php echo $this->translate('Sign Up') ?></a></li>
 					<?php } ?>
 				</ul>
@@ -127,7 +127,7 @@ if ($Auth->hasIdentity ()) {
 		<div class='row'>
 			<div class='col-md-12'>
                 <?php echo $this->partial('flash-messages'); ?>
-                    
+                  <br>  
     	        <?php echo $this->layout()->content; ?>
 	        </div>
 		</div>

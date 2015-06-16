@@ -26,7 +26,7 @@ class SigninController extends AbstractActionController {
 	 */
 	public function processAction() {
 		$username = $this->params ()->fromPost ( 'username' );
-		$password = $this->params ()->fromPost ( 'password' );
+		$password = $this->params ()->fromPost ( 'passwd' );
 		
 		$adapterService = $this->getServiceLocator ()->get ( 'Zend\Db\Adapter\Adapter' );
 		$authService = new \Zend\Authentication\AuthenticationService ();
@@ -47,7 +47,7 @@ class SigninController extends AbstractActionController {
 		
 		if ($result->isValid ()) {
 			$UserTable = $this->getServiceLocator ()->get ( 'Model\Entity\User' );
-			$UserData = $UserTable->getFinder ()->setFinderParams ( array (
+			$UserData = $UserTable->getFinder ()->setParams ( array (
 				"where" => array (
 					"username" => $username 
 				) 
