@@ -1,6 +1,6 @@
 <div class="col-lg-12">
 	<div class="col-lg-2 wizard">
-		<h3>ADD METER READING</h3>
+		<h3>METER READING</h3>
 		<hr>
 		<p class="">Its Simple. Select Date/Time, select per unit rate and add
 			reading.</p>
@@ -10,26 +10,21 @@
 
 	<div class="col-lg-10" style="display: none" id="signup-successful">
 		<div class="panel">
-			<br>
-			<br>
+			<br> <br>
 			<h1 class="text text-center text-success">
 				<span class="glyphicon glyphicon-thumbs-up"></span>
 			</h1>
 			<hr>
 			<h3 class="text text-center">Brill .. you are successfully registered
 				now.</h3>
-			<br>
-			<br>
+			<br> <br>
 			<p class="text text-center">
 				We would like you to <strong class="text text-success">Click a link
 					on your Email</strong> which will confirm us that you are a human
 				and not a Robot.
 			</p>
 
-			<br>
-			<br>
-			<br>
-			<br>
+			<br> <br> <br> <br>
 		</div>
 	</div>
 	<div class="col-lg-10" id="signup-wizard">
@@ -39,204 +34,76 @@
 				method="post">
 				<div class="wizard" data-initialize="wizard" id="signup_form">
 					<ul class="steps">
-						<li data-step="1" data-name="about" class="active"><span
-							class="badge">1</span>Date/Time<span class="chevron"></span></li>
-						<li data-step="2" data-name="settings"><span class="badge">2</span>Per
-							Unit Rate<span class="chevron"></span></li>
-						<li data-step="3" data-name="login"><span class="badge">3</span>Reading<span
-							class="chevron"></span></li>
+						<li data-step="1" data-name="about" class="active">ADD NEW METER
+							READING<span class="chevron"></span>
+						</li>
+						<li class="">Help<span class="chevron"></span></li>
 					</ul>
-					<div class="actions">
-						<button type="button" class="btn btn-primary btn-sm btn-prev"
-							id="prev_button">
-							<span class="glyphicon glyphicon-arrow-left"></span>Prev
-						</button>
-						<button type="button" class="btn btn-primary btn-next btn-sm"
-							id="next_button" data-last="Complete">
-							Next<span class="glyphicon glyphicon-arrow-right"></span>
-						</button>
-					</div>
 					<div class="step-content">
 						<div class="step-pane active sample-pane alert" data-step="1">
 							<h5 class="text text-muted">Select Date/Time when you took the
 								reading.</h5>
 							<hr>
+
 							<div class="form-group">
-								<label for="first_name" class="col-lg-2 control-label">First
-									Name</label>
+								<label for="dtp_input1" class="col-lg-2 control-label">DateTime
+								</label>
+								<div class="input-group date form_datetime col-lg-5"
+									data-date-format="dd MM yyyy - HH:ii p"
+									data-link-field="dtp_input1">
+									<input class="form-control" size="16" type="text" value=""
+										required readonly> <span class="input-group-addon"><span
+										class="glyphicon glyphicon-remove"></span></span> <span
+										class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+								</div>
+								<input type="hidden" id="dtp_input1" value="" /><br />
+							</div>
+							<hr>
+							<div class="form-group">
+								<label class="col-lg-2 control-label">Rate</label>
 								<div class="col-lg-10">
-									<div class="input-group">
-										<input class="form-control" id="myDatepickerInput" type="text" />
-										<div class="input-group-btn">
-											<button type="button" class="btn btn-default dropdown-toggle"
-												data-toggle="dropdown">
-												<span class="glyphicon glyphicon-calendar"></span> <span
-													class="sr-only">Toggle Calendar</span>
-											</button>
-											<div
-												class="dropdown-menu dropdown-menu-right datepicker-calendar-wrapper"
-												role="menu">
-												<div class="datepicker-calendar">
-													<div class="datepicker-calendar-header">
-														<button type="button" class="prev">
-															<span class="glyphicon glyphicon-chevron-left"></span><span
-																class="sr-only">Previous Month</span>
-														</button>
-														<button type="button" class="next">
-															<span class="glyphicon glyphicon-chevron-right"></span><span
-																class="sr-only">Next Month</span>
-														</button>
-														<button type="button" class="title">
-															<span class="month"> <span data-month="0">January</span>
-																<span data-month="1">February</span> <span
-																data-month="2">March</span> <span data-month="3">April</span>
-																<span data-month="4">May</span> <span data-month="5">June</span>
-																<span data-month="6">July</span> <span data-month="7">August</span>
-																<span data-month="8">September</span> <span
-																data-month="9">October</span> <span data-month="10">November</span>
-																<span data-month="11">December</span>
-															</span> <span class="year"></span>
-														</button>
-													</div>
-													<table class="datepicker-calendar-days">
-														<thead>
-															<tr>
-																<th>Su</th>
-																<th>Mo</th>
-																<th>Tu</th>
-																<th>We</th>
-																<th>Th</th>
-																<th>Fr</th>
-																<th>Sa</th>
-															</tr>
-														</thead>
-														<tbody></tbody>
-													</table>
-													<div class="datepicker-calendar-footer">
-														<button type="button" class="datepicker-today">Today</button>
-													</div>
-												</div>
-												<div class="datepicker-wheels" aria-hidden="true">
-													<div class="datepicker-wheels-month">
-														<h2 class="header">Month</h2>
-														<ul>
-															<li data-month="0"><button type="button">Jan</button></li>
-															<li data-month="1"><button type="button">Feb</button></li>
-															<li data-month="2"><button type="button">Mar</button></li>
-															<li data-month="3"><button type="button">Apr</button></li>
-															<li data-month="4"><button type="button">May</button></li>
-															<li data-month="5"><button type="button">Jun</button></li>
-															<li data-month="6"><button type="button">Jul</button></li>
-															<li data-month="7"><button type="button">Aug</button></li>
-															<li data-month="8"><button type="button">Sep</button></li>
-															<li data-month="9"><button type="button">Oct</button></li>
-															<li data-month="10"><button type="button">Nov</button></li>
-															<li data-month="11"><button type="button">Dec</button></li>
-														</ul>
-													</div>
-													<div class="datepicker-wheels-year">
-														<h2 class="header">Year</h2>
-														<ul></ul>
-													</div>
-													<div class="datepicker-wheels-footer clearfix">
-														<button type="button" class="btn datepicker-wheels-back">
-															<span class="glyphicon glyphicon-arrow-left"></span><span
-																class="sr-only">Return to Calendar</span>
-														</button>
-														<button type="button" class="btn datepicker-wheels-select">
-															Select <span class="sr-only">Month and Year</span>
-														</button>
-													</div>
-												</div>
-											</div>
-										</div>
+									<div class="radio">
+										<label> <input type="radio" name="optionsRadios"
+											id="optionsRadios1" value="option1" checked="">&pound;0.18
+											per unit
+										</label>
+									</div>
+									<div class="radio">
+										<label> <input type="radio" name="optionsRadios"
+											id="optionsRadios2" value="option2">&pound;0.19 per unit
+											&nbsp;&nbsp;&nbsp;&nbsp; <a href="#"><small
+												class="btn btn-xs btn-warning">Edit</small></a> <a href="#">
+												<small class="btn btn-xs btn-danger">Delete</small>
+										</a>
+										</label>
 									</div>
 								</div>
-							</div>
-							<div class="form-group">
-								<label for="last_name" class="col-lg-2 control-label">Last Name</label>
+								<div class="col-lg-2"></div>
 								<div class="col-lg-10">
-									<input type="text" class="form-control" id="last_name"
-										name="last_name" placeholder="">
+								<hr>
+									<a href="#" class="btn btn-xs text text-muted pull-left"><span
+										class="glyphicon glyphicon-plus"></span> Add More Rates</a>
 								</div>
-							</div>
+								<div class="clearfix"></div>
 
-							<div class="form-group">
-								<label for="mobile" class="col-lg-2 control-label">Mobile</label>
-								<div class="col-lg-10">
-									<input type="text" class="form-control" id="mobile"
-										name="mobile" placeholder="">
-								</div>
 							</div>
-
-						</div>
-						<div class="step-pane sample-pane alert " data-step="2">
-							<h5 class="text text-muted">Below settings will help you to
-								receive alert email and updates.</h5>
 							<hr>
 							<div class="form-group">
-								<label for="weekly_cost_threshold"
-									class="col-lg-2 control-label">Weekly Cost Threshold</label>
-								<div class="col-lg-10">
-									<input type="text" class="form-control"
-										id="weekly_cost_threshold" name="weekly_cost_threshold"
-										placeholder=""> <small>if your Weekly cost reach to above
-										specified amount, we will send you email alert</small>
+								<label class="col-lg-2 control-label">Meter Reading</label>
+								<div class="col-lg-2">
+									<input class="form-control" maxlength="7">
 								</div>
 							</div>
-							<div class="form-group">
-								<label for="monthly_cost_threshold"
-									class="col-lg-2 control-label">Monthly Cost Threshold</label>
-								<div class="col-lg-10">
-									<input type="text" class="form-control"
-										id="monthly_cost_threshold" name="monthly_cost_threshold"
-										placeholder=""> <small>if your Monthly cost reach to above
-										specified amount, we will send you email alert</small>
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="quarterly_cost_threshold"
-									class="col-lg-2 control-label">Quarterly Cost Threshold</label>
-								<div class="col-lg-10">
-									<input type="text" class="form-control"
-										id="quarterly_cost_threshold" name="quarterly_cost_threshold"
-										placeholder=""> <small>if your Quarterly cost reach to above
-										specified amount, we will send you email alert</small>
-								</div>
-							</div>
-
-						</div>
-						<div class="step-pane sample-pane alert" data-step="3">
-							<h5 class="text text-muted">Below information will let you login.</h5>
 							<hr>
-
 							<div class="form-group">
-								<label for="email" class="col-lg-2 control-label">Email/Username</label>
-								<div class="col-lg-10">
-									<input type="email" class="form-control" id="username"
-										name="username" placeholder="(this is REQUIRED)"> <small
-										class="username_error text text-danger"></small>
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="passwd" class="col-lg-2 control-label">Password</label>
-								<div class="col-lg-10">
-									<input type="password" class="form-control" id="passwd"
-										name="passwd" placeholder="(this is REQUIRED)"> <small
-										class="passwd_error text text-danger"></small>
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="c_passwd" class="col-lg-2 control-label">Confirm
-									Password</label>
-								<div class="col-lg-10">
-									<input type="password" class="form-control" id="c_passwd"
-										name="c_passwd" placeholder="(this is REQUIRED)"> <small
-										class="c_passwd_error text text-danger"></small>
+								<label class="col-lg-2 control-label"></label>
+								<div class="col-lg-2">
+									<input type="submit" value="Submit" class="btn btn-primary">
 								</div>
 							</div>
 
 						</div>
+
 					</div>
 				</div>
 			</form>
@@ -247,6 +114,16 @@
 <script>
 $(function(){
 
+	$('.form_datetime').datetimepicker({
+        weekStart: 1,
+        todayBtn:  1,
+		autoclose: 1,
+		todayHighlight: 1,
+		startView: 2,
+		forceParse: 0,
+        showMeridian: 1
+    });
+    
 	$('#signup_form').on('finished.fu.wizard', function (evt, data) {
 		$email = $("#username").val();
 		$passwd = $("#passwd").val();
@@ -289,9 +166,7 @@ $(function(){
 		showNoty("error","Cannot process request. Try Again!");
 	});
 
-	$('#myDatepicker').datepicker({
-	  allowPastDates: true
-	});
+  
 	
 });
 </script>
