@@ -48,7 +48,8 @@ return array (
 	'controllers' => array (
 		'invokables' => array (
 			'User\Controller\Index' => 'User\Controller\IndexController',
-			'User\Controller\Dashboard' => 'User\Controller\DashboardController' 
+			'User\Controller\Dashboard' => 'User\Controller\DashboardController',
+			'User\Controller\Meter' => 'User\Controller\MeterController' 
 		) 
 	),
 	'view_manager' => array (
