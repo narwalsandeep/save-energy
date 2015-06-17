@@ -141,7 +141,6 @@ abstract class EntityTable implements \Zend\ServiceManager\ServiceLocatorAwareIn
 	 */
 	public function save(Entity $entity, $where = null) {
 		$table = substr ( $this->getTableGateway ()->table, 7 );
-		
 		$columns = \Model\Module::$table_map [$table] ['columns'];
 		foreach ( $columns as $key => $value ) {
 			if (property_exists ( $entity, $value ))
