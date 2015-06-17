@@ -27,12 +27,12 @@
 			<br> <br> <br> <br>
 		</div>
 	</div>
-	<div class="col-lg-10" id="signup-wizard">
+	<div class="col-lg-10" id="new-reading-wizard">
 		<div class="">
 			<form class="form-horizontal" ajax-form-submit
-				action="<?php echo $this->url("ajax",array("controller"=>"application","action"=>"signup"))?>"
+				action="<?php echo $this->url("ajax",array("controller"=>"user","action"=>"meter-new-reading"))?>"
 				method="post">
-				<div class="wizard" data-initialize="wizard" id="signup_form">
+				<div class="wizard" data-initialize="wizard" id="new-reading_form">
 					<ul class="steps">
 						<li data-step="1" data-name="about" class="active">ADD NEW METER
 							READING<span class="chevron"></span>
@@ -41,57 +41,43 @@
 					</ul>
 					<div class="step-content">
 						<div class="step-pane active sample-pane alert" data-step="1">
-							<h5 class="text text-muted">Select Date/Time when you took the
-								reading.</h5>
-							<hr>
-
+							
 							<div class="form-group">
 								<label for="dtp_input1" class="col-lg-2 control-label">DateTime
 								</label>
 								<div class="input-group date form_datetime col-lg-5"
 									data-date-format="dd MM yyyy - HH:ii p"
 									data-link-field="dtp_input1">
-									<input class="form-control" size="16" type="text" value=""
-										required readonly> <span class="input-group-addon"><span
+									<input class="form-control" id="dated" name="dated" size="16" type="text"
+										value="" required readonly> <span class="input-group-addon"><span
 										class="glyphicon glyphicon-remove"></span></span> <span
 										class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
 								</div>
-								<input type="hidden" id="dtp_input1" value="" /><br />
+								<input type="hidden" value="" /><br />
 							</div>
 							<hr>
 							<div class="form-group">
 								<label class="col-lg-2 control-label">Rate</label>
 								<div class="col-lg-10">
 									<div class="radio">
-										<label> <input type="radio" name="optionsRadios"
-											id="optionsRadios1" value="option1" checked="">&pound;0.18
-											per unit
+										<label> <input type="radio" name="per_unit_rate"
+											value="0.20" >&pound;0.20 per unit
 										</label>
 									</div>
 									<div class="radio">
-										<label> <input type="radio" name="optionsRadios"
-											id="optionsRadios2" value="option2">&pound;0.19 per unit
-											&nbsp;&nbsp;&nbsp;&nbsp; <a href="#"><small
-												class="btn btn-xs btn-warning">Edit</small></a> <a href="#">
-												<small class="btn btn-xs btn-danger">Delete</small>
-										</a>
+										<label> <input type="radio" name="per_unit_rate"
+											value="0.18" >&pound;0.18 per unit
+
 										</label>
 									</div>
 								</div>
-								<div class="col-lg-2"></div>
-								<div class="col-lg-10">
-								<hr>
-									<a href="#" class="btn btn-xs text text-muted pull-left"><span
-										class="glyphicon glyphicon-plus"></span> Add More Rates</a>
-								</div>
-								<div class="clearfix"></div>
 
 							</div>
 							<hr>
 							<div class="form-group">
 								<label class="col-lg-2 control-label">Meter Reading</label>
 								<div class="col-lg-2">
-									<input class="form-control" maxlength="7">
+									<input class="form-control" id="reading" name="reading" maxlength="7">
 								</div>
 							</div>
 							<hr>
@@ -124,38 +110,13 @@ $(function(){
         showMeridian: 1
     });
     
-	$('#signup_form').on('finished.fu.wizard', function (evt, data) {
-		$email = $("#username").val();
-		$passwd = $("#passwd").val();
-		$c_passwd = $("#c_passwd").val();
-		$error = false;
-		
-		if($email == ""){
-			$(".username_error").html("Username is required. Must be a valid email.");
-			$error = true;
-			
-		}
-		if($passwd == ""){
-			$(".passwd_error").html("Password is required.");
-			$error = true;
-			
-		}
-		if($c_passwd == "" || $passwd != $c_passwd){
-			$(".c_passwd_error").html("Confirm Passwod is required, and must match Password.");
-			$error = true;
-		}
-
-		if(!$error)
-			$(this).parent().submit();			
-		
-	});
 
 	// via ajax submit plugin
 	$('form[ajax-form-submit]').autosubmit(function(form,response){
 		if(response.success){
 			showNoty("success",response.message);
-			$("#signup-wizard").remove();
-			$("#signup-successful").show();
+			$("#reading").val("");
+			$("#dated").val("");
 			
 		}
 		else{

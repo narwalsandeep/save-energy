@@ -3,7 +3,8 @@ return array(
     'controllers' => array(
         'invokables' => array(
             'Ajax\Controller\Application' => 'Ajax\Controller\ApplicationController',
-            
+        	'Ajax\Controller\User' => 'Ajax\Controller\UserController',
+        	 
         ),
     ),
     'router' => array(

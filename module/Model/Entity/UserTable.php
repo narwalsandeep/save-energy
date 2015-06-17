@@ -31,7 +31,6 @@ class UserTable extends EntityTable {
 		parent::__construct ( $tableGateway );
 	}
 	
-	
 	/**
 	 *
 	 * @param unknown $params        	
