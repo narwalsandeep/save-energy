@@ -77,12 +77,11 @@ class Module implements AutoloaderProviderInterface {
 			) 
 		),
 		"meter" => array (
-			"entity" => "\Model\Entity\BusinessUser",
+			"entity" => "\Model\Entity\Meter",
 			"associate" => array (),
 			"columns" => array (
 				'id',
-				'address_id',
-				'reading_type',
+				'per_unit_rate',
 				'reading',
 				'dated' 
 			) 
