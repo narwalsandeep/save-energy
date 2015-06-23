@@ -35,4 +35,5 @@ class User extends Entity {
 	 */
 	const CUSTOMER = 'customer';
 	
+	
 }
