@@ -35,9 +35,13 @@ class DashboardController extends AbstractActionController {
 	
 	/**
 	 * (non-PHPdoc)
-	 * 
+	 *
 	 * @see \Zend\Mvc\Controller\AbstractActionController::indexAction()
 	 */
 	public function indexAction() {
+		$UserTable = $this->getServiceLocator ()->get ( "Model\Entity\User" );
+		$TimeLineStats = $UserTable->getFinder ()->getTimeLineStats ( $this->_authStorage );
+		$MonthlyBill = $UserTable->getFinder ()->getMonthlyBillStats ( $this->_authStorage );
+		
 	}
 }
