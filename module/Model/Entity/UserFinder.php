@@ -21,14 +21,24 @@ class UserFinder extends EntityFinder {
 		parent::__construct ( $table );
 	}
 	
-	public function getTimeLineStats(){
+	/**
+	 *
+	 * @return \Zend\Db\ResultSet\ResultSet|boolean
+	 */
+	public function getTimeLineStats() {
 		$sql = "
-			SELECT
-				*
-			FROM
-				park_
-			WHERE
-				date('" . $date . "') = date(from_unixtime(start_date))
+			SELECT 
+				m.id,sum((m.per_unit_rate*m.reading)- m.per_unit_rate*(SELECT reading FROM energy_meter LIMIT 1)),
+				m.reading,per_unit_rate,date(from_unixtime(m.dated)) as date_part 
+			FROM 
+				energy_user u, energy_meter m 
+			WHERE 
+				u.id = m.user_id
+			GROUP BY 
+				per_unit_rate, date_part 
+			ORDER BY
+				date_part, per_unit_rate
+				
 			";
 		$stmt = $this->_table->tableGateway->getAdapter ()->createStatement ( $sql );
 		$stmt->prepare ();
@@ -38,13 +48,10 @@ class UserFinder extends EntityFinder {
 			$resultSet->initialize ( $result );
 			if ($resultSet->count ())
 				return $resultSet;
-				return false;
+			return false;
 		}
 		return false;
 	}
-	
-	public function getMonthlyBillStats(){
-		
+	public function getMonthlyBillStats() {
 	}
-	
 }

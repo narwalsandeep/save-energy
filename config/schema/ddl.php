@@ -45,10 +45,12 @@ create table energy_address(
 create table energy_meter(
 
 	id int(10) auto_increment,
+	user_id int(10),
 	per_unit_rate varchar(10),
 	reading varchar(200),
 	dated varchar(200),
 	
-	primary key(id)
+	primary key(id),
+	foreign key(user_id) references energy_user(id) on update cascade on delete cascade
 	
 )engine=innodb;
