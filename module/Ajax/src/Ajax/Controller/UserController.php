@@ -59,6 +59,7 @@ class UserController extends AbstractActionController {
 			
 			// try to create now
 			$params ['dated'] = strtotime ( str_replace ( "-", "", $params ['dated'] ) );
+			$params['user_id'] = $this->_authStorage->id;
 			$MeterTable->create ( $params );
 			
 			if ($MeterTable->hasError ()) {

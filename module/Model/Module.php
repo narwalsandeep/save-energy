@@ -83,6 +83,7 @@ class Module implements AutoloaderProviderInterface {
 			"associate" => array (),
 			"columns" => array (
 				'id',
+				'user_id',
 				'per_unit_rate',
 				'reading',
 				'dated' 
