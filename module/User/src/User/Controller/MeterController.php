@@ -12,6 +12,7 @@ namespace User\Controller;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\Authentication\AuthenticationService;
 use Zend\View\Model\ViewModel;
+use Zend\Mvc\View\Console\ViewManager;
 
 /**
  *
@@ -43,8 +44,21 @@ class MeterController extends AbstractActionController {
 	
 	/**
 	 * 
+	 * @return \Zend\Http\Response|\Zend\View\Model\ViewModel
 	 */
-	public function newReadingAction(){
+	public function newReadingAction() {
+		$UserTable = $this->getServiceLocator ()->get ( 'Model\Entity\User' );
+		$UserData = $UserTable->getFinder ()->find ( $this->_authStorage->id );
 		
+		if (! $UserData->day_time_rate || ! $UserData->night_time_rate) {
+			return $this->redirect ()->toRoute ( "user", array (
+				"controller" => "account",
+				"action" => "settings" 
+			) );
+		}
+		
+		$viewModel = new ViewModel ();
+		$viewModel->setVariable ( "user", $UserData );
+		return $viewModel;
 	}
 }

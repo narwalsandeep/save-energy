@@ -49,8 +49,10 @@ return array (
 		'invokables' => array (
 			'User\Controller\Index' => 'User\Controller\IndexController',
 			'User\Controller\Dashboard' => 'User\Controller\DashboardController',
-			'User\Controller\Meter' => 'User\Controller\MeterController' 
-		) 
+			'User\Controller\Meter' => 'User\Controller\MeterController',
+			'User\Controller\Account' => 'User\Controller\AccountController' 
+		)
+		 
 	),
 	'view_manager' => array (
 		'template_path_stack' => array (

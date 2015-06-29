@@ -9,13 +9,20 @@ create table energy_user(
 	username varchar(100) unique,
 	passwd varchar(100),
 	auth_token varchar(200),
+	
 	avatar varchar(100),
 	mobile varchar(200),
+	
+	day_time_rate varchar(200),
+	night_time_rate varchar(200),
+	
 	weekly_cost_threshold varchar(200),
 	monthly_cost_threshold varchar(200),
 	quarterly_cost_threshold varchar(200),
+	
 	resetting_password boolean,
 	reset_password_time varchar(100),
+	
 	dated varchar(100),
 	status varchar(100),
 

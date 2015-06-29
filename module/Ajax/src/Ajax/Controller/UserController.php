@@ -76,4 +76,38 @@ class UserController extends AbstractActionController {
 			"message" => $message 
 		) );
 	}
+	
+	/**
+	 *
+	 * @return \Zend\View\Model\JsonModel
+	 */
+	public function settingsAction() {
+		$response = $this->getResponse ();
+		$params = $this->params ()->fromPost ();
+		
+		if ($this->getRequest ()->isPost ()) {
+			$UserTable = $this->getServiceLocator ()->get ( 'Model\Entity\User' );
+			
+			// try to create now
+			$UserTable->update ( $params, array (
+				"id" => $this->_authStorage->id 
+			) );
+			
+			if ($UserTable->hasError ()) {
+				$success = false;
+				$message = $UserTable->getErrorMessage ();
+			} else {
+				$success = true;
+				$message = "Settings updated successfully";
+			}
+		}
+		
+		$response->setStatusCode ( 200 );
+		return new JsonModel ( array (
+			"success" => $success,
+			"message" => $message 
+		) );
+	}
 }
+
+

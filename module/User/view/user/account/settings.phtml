@@ -1,0 +1,77 @@
+<div class="col-lg-12">
+	<div class="col-lg-2 wizard">
+		<h3>SETTINGS</h3>
+		<hr>
+		<p class="">Please setup your Day Time Meter Rate and Night Time Meter
+			Rate bsaed on your current provider</p>
+		<hr>
+
+	</div>
+
+	<div class="col-lg-10" id="new-reading-wizard">
+		<div class="">
+			<form class="form-horizontal" ajax-form-submit
+				action="<?php echo $this->url("ajax",array("controller"=>"user","action"=>"settings"))?>"
+				method="post">
+				<div class="wizard" data-initialize="wizard" id="setup-rate_form">
+					<ul class="steps">
+						<li data-step="1" data-name="about" class="active">SETUP RATE<span
+							class="chevron"></span>
+						</li>
+						<li class="">Help<span class="chevron"></span></li>
+					</ul>
+					<div class="step-content">
+						<div class="step-pane active sample-pane alert" data-step="1">
+
+							<div class="form-group">
+								<label class="col-lg-2 control-label">Day Rate</label>
+								<div class="col-lg-2">
+									<input class="form-control" name="day_time_rate" maxlength="5" value="<?php echo $this->user->day_time_rate?>" >
+								</div>
+							</div>
+							<hr>
+							<div class="form-group">
+								<label class="col-lg-2 control-label">Night Rate</label>
+								<div class="col-lg-2">
+									<input class="form-control" name="night_time_rate" value="<?php echo $this->user->night_time_rate?>"
+										maxlength="5">
+								</div>
+							</div>
+							<hr>
+							<div class="form-group">
+								<label class="col-lg-2 control-label"></label>
+								<div class="col-lg-2">
+									<input type="submit" value="Submit" class="btn btn-primary">
+								</div>
+							</div>
+
+						</div>
+
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<script>
+$(function(){
+
+
+	// via ajax submit plugin
+	$('form[ajax-form-submit]').autosubmit(function(form,response){
+		if(response.success){
+			showNoty("success",response.message);
+		}
+		else{
+			showNoty("error",response.message);
+		}
+		
+	},function(form,response){
+		showNoty("error","Cannot process request. Try Again!");
+	});
+
+  
+	
+});
+</script>

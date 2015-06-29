@@ -48,6 +48,8 @@ class Module implements AutoloaderProviderInterface {
 				'auth_token',
 				'avatar',
 				'mobile',
+				'day_time_rate',
+				'night_time_rate',
 				'weekly_cost_threshold',
 				'monthly_cost_threshold',
 				'quarterly_cost_threshold',

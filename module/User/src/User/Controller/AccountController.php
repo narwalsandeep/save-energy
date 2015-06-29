@@ -52,30 +52,59 @@ class AccountController extends AbstractActionController {
 			// try to create now
 			$update = $params;
 			$UserTable->update ( $update, array (
-					"id" => $this->_authStorage->id 
+				"id" => $this->_authStorage->id 
 			) );
 			
 			if ($UserTable->hasError ()) {
 				$this->flashMessenger ()->addMessage ( array (
-						'error' => $UserTable->getErrorMessage () 
+					'error' => $UserTable->getErrorMessage () 
 				) );
 			} else {
 				$this->flashMessenger ()->addMessage ( array (
-						'success' => "Update was successful" 
+					'success' => "Update was successful" 
 				) );
 			}
 		}
 		
-		$this->redirect ()->toUrl ( "user/profile" );
+		return $this->redirect ()->toUrl ( "user/profile" );
 	}
 	
 	/**
 	 */
 	public function profileAction() {
 	}
+	
 	/**
 	 */
 	public function settingsAction() {
+		$params = $this->params ()->fromPost ();
+		$UserTable = $this->getServiceLocator ()->get ( 'Model\Entity\User' );
+		$UserData = $UserTable->getFinder ()->find ( $this->_authStorage->id );
+		
+		if ($this->getRequest ()->isPost ()) {
+			
+			// try to create now
+			$update = $params;
+			$UserTable->update ( $update, array (
+				"id" => $this->_authStorage->id 
+			) );
+			
+			if ($UserTable->hasError ()) {
+				$this->flashMessenger ()->addMessage ( array (
+					'error' => $UserTable->getErrorMessage () 
+				) );
+			} else {
+				$this->flashMessenger ()->addMessage ( array (
+					'success' => "Update was successful" 
+				) );
+			}
+			
+			return $this->redirect ()->toUrl ( "/user/account/settings" );
+		}
+		
+		$viewModel = new ViewModel ();
+		$viewModel->setVariable ( "user", $UserData );
+		return $viewModel;
 	}
 	
 	/**
