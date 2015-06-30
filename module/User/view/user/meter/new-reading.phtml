@@ -61,16 +61,19 @@
 								<label class="col-lg-2 control-label">Reading Type</label>
 								<div class="col-lg-10">
 									<div class="radio">
-										<label> <input type="radio" name="unit_rate"
-											value="<?php echo $this->user->day_time_rate?>"> Day Time Reading (&pound;<?php echo $this->user->day_time_rate?> per unit)
+										<label> <input type="radio" name="per_unit_rate"
+											value="<?php echo $this->user->day_time_rate?>"><Strong> Day Time </Strong> Rate (<strong> &pound;<?php echo $this->user->day_time_rate?> </strong> per unit )
 										</label>
 									</div>
 									<div class="radio">
-										<label> <input type="radio" name="unit_rate"
-											value="<?php echo $this->user->night_time_rate?>"> Night Time Reading (&pound;<?php echo $this->user->night_time_rate?> per unit)
+										<label> <input type="radio" name="per_unit_rate"
+											value="<?php echo $this->user->night_time_rate?>"><Strong> Night Time</Strong> Rate (<strong> &pound;<?php echo $this->user->night_time_rate?> </strong> per unit )
 										
 										</label>
 									</div>
+									<br>
+									<small><a href="" class="text text-muted">Change Settings</a></small>
+									
 								</div>
 							</div>
 							<hr>

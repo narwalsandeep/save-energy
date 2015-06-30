@@ -4,11 +4,56 @@
 			<li data-name="about" class="active">DASHBOARD<span class="chevron"></span></li>
 		</ul>
 		<div class="step-content">
-			<div class=" alert">
-			
+			<div class="alert">
+				<div class="btn-group btn-sm pull-right">
+					<a href="#" id="load_more" class="btn btn-sm btn-success"><span
+						class="glyphicon glyphicon-chevron-left"></span> Prev Month</a> <a
+						href="#" class="btn btn-sm btn-info">Next Month <span
+						class="glyphicon glyphicon-chevron-right"></span>
+					</a>
+				</div>
+				<div class="clearfix"></div>
+				<hr>
+				<div id="line_chart"></div>
 			</div>
 		</div>
 	</div>
-	</form>
 </div>
 
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+    google.load('visualization', '1.1', {packages: ['line']});
+    google.setOnLoadCallback(drawChart);
+	var data,chart,options,month=0;
+
+	function drawChart() {
+
+		data = new google.visualization.DataTable();
+      	data.addColumn('number', 'Day');
+      	data.addColumn('number', 'Day Time');
+      	data.addColumn('number', 'Night Time');
+      	options = {
+	        chart: {
+    	      	title: 'Monthly Report',
+        	  	subtitle: 'User Prev Next Button on top right to view other month reports',
+			},
+        	legend: { position: 'none' },
+        	height: 500
+      	};
+      	chart = new google.charts.Line(document.getElementById('line_chart'));
+    }
+
+    $("#load_more").click(function(){
+    	$('.loading').show(); 
+        $.post("<?php echo $this->basepath()?>/ajax/report/get-report",
+    	    {'type': 1, 'month': month}, function(response){
+			data.addRows(response);	          
+	        chart.draw(data, options);
+			$(".loading").hide();	
+            
+        }).fail(function(xhr, ajaxOptions, thrownError) {
+			$(".loading").hide();	
+		});
+        
+  	});
+</script>

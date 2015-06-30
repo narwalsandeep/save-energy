@@ -40,8 +40,8 @@ class DashboardController extends AbstractActionController {
 	 */
 	public function indexAction() {
 		$UserTable = $this->getServiceLocator ()->get ( "Model\Entity\User" );
-		$TimeLineStats = $UserTable->getFinder ()->getTimeLineStats ( $this->_authStorage );
-		$MonthlyBill = $UserTable->getFinder ()->getMonthlyBillStats ( $this->_authStorage );
+		//$TimeLineStats = $UserTable->getFinder ()->getTimeLineStats ( $this->_authStorage );
+		//$MonthlyBill = $UserTable->getFinder ()->getMonthlyBillStats ( $this->_authStorage );
 		
 	}
 }

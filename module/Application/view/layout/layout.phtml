@@ -104,9 +104,6 @@ if ($Auth->hasIdentity ()) {
 						href="<?php echo $this->url('user',array('controller'=>'dashboard','action'=>'index')) ?>"><span
 							class='glyphicon glyphicon-dashboard'></span> <?php echo $this->translate('Dashboard') ?></a></li>
 			     	<li class="active"><a
-						href="<?php echo $this->url('user',array('controller'=>'meter','action'=>'get-stats')) ?>"><span
-							class='glyphicon glyphicon-stats'></span> <?php echo $this->translate('Stats') ?></a></li>
-			     	<li class="active"><a
 						href="<?php echo $this->url('user',array('controller'=>'meter','action'=>'new-reading')) ?>"><span
 							class='glyphicon  glyphicon-flash'></span> <?php echo $this->translate('New Reading') ?></a></li>
 					<li class="active"><a
