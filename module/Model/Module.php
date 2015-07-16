@@ -14,6 +14,7 @@ use Zend\Mvc\ModuleRouteListener;
 use Zend\Mvc\MvcEvent;
 use Zend\Db\ResultSet\ResultSet;
 use Zend\Db\TableGateway\TableGateway;
+use Zend\Stdlib\ArrayStack;
 
 /**
  *
@@ -24,13 +25,13 @@ class Module implements AutoloaderProviderInterface {
 	
 	/**
 	 *
-	 * @var unknown
+	 * @var String
 	 */
-	public static $table_prefix = "energy_";
+	public static $table_prefix = "bv2_";
 	
 	/**
 	 *
-	 * @var unknown
+	 * @var Array
 	 */
 	public static $table_map = array (
 		"user" => array (
